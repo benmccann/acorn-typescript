@@ -4,6 +4,7 @@
   "description": "Alternative, TypeScript parser",
   "source": "src/index.ts",
   "main": "lib/index.js",
+  "type": "commonjs",
   "types": "lib/index.d.ts",
   "exports": {
     ".": [
