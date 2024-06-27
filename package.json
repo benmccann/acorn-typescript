@@ -4,8 +4,17 @@
   "description": "Alternative, TypeScript parser",
   "source": "src/index.ts",
   "main": "lib/index.js",
-  "module": "lib/index.mjs",
   "types": "lib/index.d.ts",
+  "exports": {
+    ".": [
+      {
+        "types": "./lib/index.d.ts",
+        "import": "./lib/index.mjs",
+        "default": "./lib/index.js"
+      },
+      "./lib/index.js"
+    ]
+  },
   "scripts": {
     "build": "microbundle --define process.env.NODE_ENV=production --no-sourcemap --tsconfig ./tsconfig.json --format esm,cjs",
     "test": "jest --collect-coverage --silent",
@@ -13,16 +22,6 @@
     "release-major": "yarn build && yarn test && standard-version --release-as major",
     "release-minor": "yarn build && yarn test && standard-version --release-as minor",
     "release-patch": "yarn build && yarn test && standard-version --release-as patch"
-  },
-  "exports": {
-    ".": [
-      {
-        "import": "./lib/index.mjs",
-        "require": "./lib/index.js",
-        "default": "./lib/index.js"
-      },
-      "./lib/index.js"
-    ]
   },
   "repository": {
     "type": "git",
